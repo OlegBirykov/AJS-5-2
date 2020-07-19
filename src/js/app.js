@@ -17,4 +17,7 @@ function exampleCreateHeroes() {
   };
 }
 
-exampleCreateHeroes();
+const hero = exampleCreateHeroes().daemon;
+
+hero.damage(165);
+hero.levelUp();

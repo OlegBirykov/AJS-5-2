@@ -19,4 +19,22 @@ export default class Character {
     this.attack = 0;
     this.defence = 0;
   }
+
+  levelUp() {
+    if (this.health === 0) {
+      throw new Error('Нельзя повысить уровень покойника');
+    }
+    this.level++;
+    this.attack = Math.round(this.attack * 1.2);
+    this.defence = Math.round(this.defence * 1.2);
+    this.health = 100;
+  }
+
+  damage(points) {
+    this.health -= points * (1 - this.defence / 100);
+    this.health = Math.round(this.health);
+    if (this.health < 0) {
+      this.health = 0;
+    }
+  }
 }
